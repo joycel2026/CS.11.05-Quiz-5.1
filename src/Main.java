@@ -8,9 +8,14 @@ public class Main {
      * zip(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
      */
     public static int[] combine(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] combine = new int[(array1.length)+(array2.length)];
+        for (int i = 0; i<array1.length;i++){
+            combine[i]=array1[i];
+        }
+        for (int j = 0; j<array2.length;j++){
+            combine[(array1.length)+j]=array2[j];
+        }
+        return combine;
     }
 
     /**
@@ -21,9 +26,12 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] zip = new int[(array1.length)*2];
+        for (int i = 0; i<array1.length;i++){
+            zip[i*2]=array1[i];
+            zip[i*2+1]=array2[i];
+        }
+        return zip;
     }
 
     /**
@@ -34,9 +42,11 @@ public class Main {
      * product(myArray1, myArray2) → {2,12,30,56,90}
      */
     public static int[] product(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] product = new int[array1.length];
+        for (int i = 0; i<array1.length; i++){
+            product[i]=array1[i]*array2[i];
+        }
+        return product;
     }
 
     /**
@@ -55,16 +65,25 @@ public class Main {
      * String[] words = {“Christmas”, “IS”, “comInG”, “!”};
      * capitalCount(words) → {1, 2, 2, 0}
      */
+
     public static int[] capitalCount(String[] words) {
-
-        return null;
-
+        int[] capitalCount = new int[words.length];
+        for (int i = 0; i<words.length;i++){
+            capitalCount[i]=countCapitalLetters(words[i]);
+        }
+        return capitalCount;
     }
 
     public static int countCapitalLetters(String word) {
-
-        return 0;
-
+        int result = 0;
+        for (int i=0;i<word.length();i++){
+            if (Character.isAlphabetic(word.charAt(i))){
+                int number = word.charAt(i);
+                if ((number>=65)&&(number<=91)){
+                    result++;
+                }
+            }
+        }
+        return result;
     }
-
 }
